@@ -1,12 +1,13 @@
+import { BASE_API_URL } from "@/constaturl";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 
-const url ="http://localhost:5000/api";
+//const url ="http://localhost:5000/api";
 
 export const filterRtk = createApi({
     reducerPath:"filterapi",
      baseQuery:fetchBaseQuery({
-        baseUrl:url,
+        baseUrl:BASE_API_URL,
 
      }),
      endpoints:(builder)=>({

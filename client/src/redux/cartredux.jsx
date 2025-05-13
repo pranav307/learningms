@@ -1,11 +1,12 @@
+import { BASE_API_URL } from "@/constaturl";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 
-const cartlink ="http://localhost:5000/api";
+//const cartlink ="http://localhost:5000/api";
 export const cartApi =  createApi({
     reducerPath:"cartslice",
     baseQuery:fetchBaseQuery({
-        baseUrl:cartlink,
+        baseUrl:BASE_API_URL,
         credentials:"include",
         prepareHeaders:(headers,{getState})=>{
             const token = getState().auth.token;

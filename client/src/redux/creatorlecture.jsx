@@ -1,10 +1,11 @@
+import { BASE_API_URL } from "@/constaturl";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const creatorurl = "http://localhost:5000/api";
+//const creatorurl = "http://localhost:5000/api";
 export const creatorSlice = createApi({
   reducerPath: "creatorapi",
   baseQuery: fetchBaseQuery({
-    baseUrl: creatorurl,
+    baseUrl: BASE_API_URL,
     credentials: "include",
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;

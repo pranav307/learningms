@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setFilters } from "./filterslice";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { BASE_API_URL } from "@/constaturl";
 
 export function CourseFilter({ isOpen, setIsopen }) {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ export function CourseFilter({ isOpen, setIsopen }) {
   useEffect(() => {
     const fetchcategory = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/getcategory");
+        const response = await axios.get(`${BASE_API_URL}/getcategory`);
         setcategories(response.data?.categories ?? []);
         console.log("Fetched categories:", response.data?.categories);
       } catch (error) {

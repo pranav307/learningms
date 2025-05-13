@@ -1,13 +1,14 @@
+import { BASE_API_URL } from "@/constaturl";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
 
 
-const orderurl = "http://localhost:5000/api";
+//const orderurl = "http://localhost:5000/api";
 
 export const razorpayrtk = createApi({
     reducerPath:"orderApi",
     baseQuery:fetchBaseQuery({
-        baseUrl:orderurl,
+        baseUrl:BASE_API_URL,
         credentials:"include",
         prepareHeaders:(headers,{getState})=>{
             const token = getState().auth.token;

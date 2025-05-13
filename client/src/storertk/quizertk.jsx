@@ -1,12 +1,13 @@
+import { BASE_API_URL } from "@/constaturl";
 import { createApi,fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 
 
-const quizeurl ="http://localhost:5000/api"; 
+//const quizeurl ="http://localhost:5000/api"; 
 export const Quizertk = createApi({
     reducerPath:"quize",
     baseQuery:fetchBaseQuery({
-       baseUrl:quizeurl,
+       baseUrl:BASE_API_URL,
        creadentials:"include",
        prepareHeaders:(headers,{getState})=>{
          const token = getState().auth.token;

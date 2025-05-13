@@ -38,16 +38,16 @@ const port =5000;
 app.get("/",(req,res)=>{
     res.send("wwwwweeee");
 })
-app.use("/api",router);
-app.use("/api",adminRouter);
-app.use("/api",creatorrouter);
-app.use("/api",lectureroute);
-app.use("/api",cartrouter);
-app.use("/api",studentrouter);
-app.use("/api",filterrouter);
-app.use("/api",lectureloc);
-app.use("/api",paymoney);
-app.use("/api",quizerouter);
+app.use(router);
+app.use(adminRouter);
+app.use(creatorrouter);
+app.use(lectureroute);
+app.use(cartrouter);
+app.use(studentrouter);
+app.use(filterrouter);
+app.use(lectureloc);
+app.use(paymoney);
+app.use(quizerouter);
  app.listen(port,()=>{
     console.log(`server is runnibg on http://localhost:${port}`);
  })

@@ -22,13 +22,26 @@ const app =express();
 const __filename = fileURLToPath(import.meta.url) //LMSPro/backend/index.js
 const __dirname =path.dirname(__filename); //LMSPro/backend/
 app.use(express.json());
-const frontendurl = process.env.Frontend_url;
+// const frontendurl = process.env.Frontend_url;
+// app.use(cors({
+//     origin:frontendurl,
+//     methods:['GET','POST','PUT','DELETE'],
+//     credentials:true,
+//     allowedHeaders:['Content-Type', 'Authorization'],
+// }))
+// ✅ Use dynamic CORS origin checking
+const allowedOriginRegex = /^https:\/\/learningms-ryux(-[a-z0-9-]+)?\.vercel\.app$/;
+
 app.use(cors({
-    origin:frontendurl,
-    methods:['GET','POST','PUT','DELETE'],
-    credentials:true,
-    allowedHeaders:['Content-Type', 'Authorization'],
-}))
+  origin: function (origin, callback) {
+    if (!origin || allowedOriginRegex.test(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+}));
 
 dbconnect();
 

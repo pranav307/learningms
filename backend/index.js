@@ -22,8 +22,9 @@ const app =express();
 const __filename = fileURLToPath(import.meta.url) //LMSPro/backend/index.js
 const __dirname =path.dirname(__filename); //LMSPro/backend/
 app.use(express.json());
+const frontendurl = process.env.Frontend_url;
 app.use(cors({
-    origin:'https://learningms-nloy-l6qivp2oo-parnavs-projects-94ca9b56.vercel.app',
+    origin:frontendurl,
     methods:['GET','POST','PUT','DELETE'],
     credentials:true,
     allowedHeaders:['Content-Type', 'Authorization'],

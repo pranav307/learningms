@@ -1,0 +1,26 @@
+import { verify } from "jsonwebtoken"; this import cause an error 
+browser-external:buffer:9  Module "buffer" has been externalized for browser compatibility. Cannot access "buffer.Buffer" in client code. See https://vite.dev/guide/troubleshooting.html#module-externalized-for-browser-compatibility for more details.
+get @ browser-external:buffer:9
+index.js:12  Uncaught TypeError: Cannot read properties of undefined (reading 'from')
+    at ../node_modules/safe-buffer/index.js (index.js:12:12)
+    at __require (chunk-DC5AMYBS.js:9:50)
+    at ../node_modules/jws/lib/sign-stream.js (sign-stream.js:2:14)
+    at __require (chunk-DC5AMYBS.js:9:50)
+    at ../node_modules/jws/index.js (index.js:2:18)
+    at __require (chunk-DC5AMYBS.js:9:50)
+    at ../node_modules/jsonwebtoken/decode.js (decode.js:1:11)
+    at __require (chunk-DC5AMYBS.js:9:50)
+    at ../node_modules/jsonwebtoken/index.js (index.js:2:11)
+    at __require (chunk-DC5AMYBS.js:9:50) explain 
+
+
+    ####
+    The error Uncaught TypeError: Illegal constructor 
+    is happening because you're trying to use <Lock /> but never imported it, and Lock is 
+    a reserved word in JavaScript—so it's trying to construct something invalid.
+
+    ####
+    if (purchase === course._id)
+This compares an object (purchase) with a string (course._id).
+ It will always return false, because courses (from useGetorderQuery) is likely
+ an array of orders or an object containing course IDs, not a single string.

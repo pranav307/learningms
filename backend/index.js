@@ -23,7 +23,7 @@ const __filename = fileURLToPath(import.meta.url) //LMSPro/backend/index.js
 const __dirname =path.dirname(__filename); //LMSPro/backend/
 app.use(express.json());
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin:"https://6822fe9d667af046efb2f007--lmsbca.netlify.app",
     methods:['GET','POST','PUT','DELETE'],
     credentials:true,
     allowedHeaders:['Content-Type', 'Authorization'],

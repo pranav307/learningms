@@ -50,9 +50,9 @@ dbconnect();
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
 const port =5000;
-app.get("/",(req,res)=>{
-    res.send("wwwwweeee");
-})
+// app.get("/",(req,res)=>{
+//     res.send("wwwwweeee");
+// })
 app.use(router);
 app.use(adminRouter);
 app.use(creatorrouter);
@@ -63,6 +63,10 @@ app.use(filterrouter);
 app.use(lectureloc);
 app.use(paymoney);
 app.use(quizerouter);
+//this for vercel error after page refresh
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
  app.listen(port,()=>{
     console.log(`server is runnibg on http://localhost:${port}`);
  })

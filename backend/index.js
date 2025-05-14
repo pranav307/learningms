@@ -30,6 +30,7 @@ app.use(express.json());
 //     allowedHeaders:['Content-Type', 'Authorization'],
 // }))
 // ✅ Use dynamic CORS origin checking
+//mongodbd uri "mongodb+srv://@cluster0.f9hxm.mongodb.net/mernps"
 const allowedOriginRegex = /^https:\/\/learningms-ryux(-[a-z0-9-]+)?\.vercel\.app$/;
 
 app.use(cors({

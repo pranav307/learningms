@@ -83,6 +83,12 @@ export const createsession = async (req, res) => {
   }
 
   console.log("course that are buy",coursetobuy)
+  if (coursetobuy.length === 0) {
+  return res.status(400).json({
+    success: false,
+    message: "No course found to purchase. Please check the course ID or cart.",
+  });
+}
 
   const totalAmount = coursetobuy.reduce((sum, course) => { 
     const price = parseFloat(course.coursePrice);
